@@ -89,52 +89,6 @@ public class BudgetManager {
         return false;
     }
 
-    // Transaction Filters
-    public Transaction getTransactionByType(String type) {
-        if (type == null || type.isEmpty()) return null;
-        for (Transaction t : transactions) {
-            if (t.getType().equalsIgnoreCase(type)) return t;
-        }
-        return null;
-    }
-
-    public List<Category> getTransactionByCategory(String categoryName) {
-        List<Category> list = new ArrayList<>();
-        if (categoryName == null || categoryName.isEmpty()) return list;
-        for (Category c : categories) {
-            if (c.getName().equalsIgnoreCase(categoryName)) list.add(c);
-        }
-        return list;
-    }
-
-    public List<Transaction> getTransactionByDate(LocalDateTime start, LocalDateTime end) {
-        List<Transaction> list = new ArrayList<>();
-        for (Transaction t : transactions) {
-            LocalDateTime date = t.getDate();
-            if ((date.isEqual(start) || date.isAfter(start)) && (date.isEqual(end) || date.isBefore(end))) {
-                list.add(t);
-            }
-        }
-        return list;
-    }
-
-    public List<Transaction> getTransactionByRecurring(boolean isRecurring) {
-        List<Transaction> list = new ArrayList<>();
-        for (Transaction t : transactions) {
-            if (t instanceof Expense e && e.isRecurring() == isRecurring) list.add(e);
-            if (t instanceof Income i && i.isRecurring() == isRecurring) list.add(i);
-        }
-        return list;
-    }
-
-    public List<Transaction> getTransactionByPaymentMethod(PaymentMethod pm) {
-        List<Transaction> list = new ArrayList<>();
-        for (Transaction t : transactions) {
-            if (t instanceof Expense e && e.getPaymentMethod() == pm) list.add(e);
-        }
-        return list;
-    }
-
     // Statistics
     public double getTotalExpense() {
         double total = 0;
