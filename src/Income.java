@@ -5,9 +5,9 @@ public class Income extends Transaction {
     // Attributes
     private boolean recurring;
     private RecurringFrequency recurringFrequency;
-    private String sourceType; // e.g., SALARY, BONUS, FREELANCE
+    private String sourceType; 
     private PaymentMethod paymentMethod;
-    private double limitAlert; // optional, for alert if amount is high
+    private double limitAlert;
 
     // Constructor
     public Income(double amount, Category category, String description,
