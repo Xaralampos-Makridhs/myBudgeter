@@ -17,7 +17,7 @@ public class BudgetManagerGUI extends JFrame {
     private JLabel balanceLabel, totalIncomeLabel, totalExpenseLabel;
 
     public BudgetManagerGUI() {
-        manager = new BudgetManager(0); // αρχικό balance 0
+        manager = new BudgetManager(0);
         setTitle("Budget Manager");
         setSize(1000, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
